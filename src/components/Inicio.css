@@ -14,8 +14,8 @@
     
 }
 .cuca:hover{
-  /* cursor: grab; */
-  cursor: url(http://www.rw-designer.com/icon-view/12512.png),auto;
+  cursor: grab;
+  /* cursor: url(http://www.rw-designer.com/icon-view/12512.png),auto; */
   /* cursor: url(http://www.rw-designer.com/icon-view/16308.png),auto; */
   
 }
@@ -79,7 +79,7 @@ body{
 
 
   .container{
-    cursor: url(http://www.rw-designer.com/cursor-view/64266.png),auto;
+    cursor: url('http://www.rw-designer.com/cursor-view/75516.png'),auto;
     min-height: 100vh; 
     min-width: 100vh; 
     color:black;

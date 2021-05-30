@@ -20,7 +20,7 @@ import './Inicio.css'
           }, 1000)
         }
         if(segundos === 0){
-          alert('Golpeaste la cuca ' + props.hits + ' veces')
+          alert('Aplastaste ' + props.hits + ' cucas')
           clearInterval(intervalo);
           setActivo(false);
           setSegundos(30);
