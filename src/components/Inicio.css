@@ -20,16 +20,28 @@
     flex-direction: row;
     height: 35px;
     width:100%;
-    background-color: rgba(248, 246, 246, 0.2);
+    background-color: rgba(143, 143, 143, 0.6);
 }
 .button{
     height:25px;
     margin-top:5px;
     margin-left: 25px;
+    border-radius: 5px;
+    background-color: rgba(143, 143, 143);
+    border:none;
+    outline:none;
+}
+.button:hover{
+
+  background-color: rgba(243, 219, 153);
+
 }
 .barText{
     margin-top:5px;
     margin-left: 25px;
+}
+.barText:hover{
+  color: rgba(243, 219, 153);
 }
 @media (max-width: 600px) {
     .bar{
@@ -43,8 +55,12 @@
         margin-top:5px;
     }
 }
+body{
+  background-color: rgba(243, 219, 153);
+}
 
-@media (min-width: 800px) {
+
+
   .container{
     min-height: 100vh; 
     min-width: 100vh; 
@@ -59,7 +75,7 @@
   #follower #circle1 {
     position: fixed;
     -webkit-animation: pulse 2s infinite; /* Chrome, Safari, Opera */
-    animation: pulse 5s infinite;
+    animation: pulse 4s infinite;
     background: rgba(243, 219, 153, 0.5);
     border-radius: 50%;
     height: 0em;
@@ -70,26 +86,29 @@
   @keyframes pulse {
     0% {
       opacity: 0.2;
-      height: 4em;
-      width: 4em;
+      height: 6em;
+      width: 6em;
       margin-top: -3em;
       margin-left: -3em;
     }
+
     50% {
       opacity: 0.9;
-      height: 7em;
-      width: 7em;
-      margin-top: -3em;
-      margin-left: -3em;
+      height: 11em;
+      width: 11em;
+      margin-top: -5.5em;
+      margin-left: -5.5em;
+      background: rgba(243, 219, 153, 0.5);
     }
+
     100% {
       opacity: 0.2;
-      height: 4em;
-      width: 4em;
+      height: 6em;
+      width: 6em;
       margin-top: -3em;
       margin-left: -3em;
     }
   }
-}
+
 
 

@@ -124,7 +124,7 @@ import './Inicio.css'
               <div id="circle1">
             </div>
           </div> 
-          <div className ='bar'>      
+          <div className ='bar' >      
             <span className='barText' >Hits: {props.hits}</span>        
             <span className='barText' >Tiempo: {segundos} s</span>
             <button className = 'button' onClick = {() => {
@@ -133,7 +133,7 @@ import './Inicio.css'
               setActivo(false)
             }}>Reset</button>          
             <button className = 'button' onClick = {() => toggle()} >Start</button>  
-            <button className = 'button' onClick = {() => toggleNight()} >Night Mode</button>  
+            <button className = 'button' onClick = {() => toggleNight()} >Night</button>  
           </div>
      
           <div className = 'cucaBlock'>
