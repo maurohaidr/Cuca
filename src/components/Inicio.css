@@ -16,6 +16,7 @@
 .body{
   background: dimgrey;
 }
+
 .bar{
     position: absolute;
     display:flex;
@@ -24,6 +25,7 @@
     width:100%;
     background-color: rgba(143, 143, 143, 0.6);
 }
+
 .button{
     height:25px;
     margin-top:5px;
@@ -33,18 +35,20 @@
     border:none;
     outline:none;
 }
+
 .button:hover{
-
   background-color: rgba(243, 219, 153);
-
 }
+
 .barText{
     margin-top:5px;
     margin-left: 25px;
 }
+
 .barText:hover{
   color: rgba(243, 219, 153);
 }
+
 @media (max-width: 600px) {
     .bar{
         height: 45px;
@@ -55,14 +59,12 @@
     }
     .barText{
         margin-top:5px;
-    }
-    
+    }    
 }
+@media (min-width: 600px) {
 body{
   background-color: rgba(243, 219, 153);
 }
-
-
 
   .container{
     min-height: 100vh; 
@@ -112,6 +114,6 @@ body{
       margin-left: -3em;
     }
   }
-
+}
 
 
