@@ -10,20 +10,16 @@
     border:none;
     outline:none;
 }
-body{
-    background-color: #666
-  }
-.cucaBlock{
-    display:block;
-    width:auto;
-    margin:25%;
-    height:auto;
-    background-color: rgb(128, 228, 29, 3);
+
+.body{
+  background: dimgrey;
 }
 .bar{
+    position: absolute;
     display:flex;
     flex-direction: row;
     height: 35px;
+    width:100%;
     background-color: rgba(248, 246, 246, 0.2);
 }
 .button{
@@ -47,13 +43,16 @@ body{
         margin-top:5px;
     }
 }
-@media (min-width: 800px) {
-html {
 
-    background: rgb(7, 6, 6);
+@media (min-width: 800px) {
+  .container{
+    min-height: 100vh; 
+    min-width: 100vh; 
+    color:black;
+    background-color: rgb(7, 6, 6);
   }
   #follower {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
   }
@@ -62,81 +61,11 @@ html {
     -webkit-animation: pulse 2s infinite; /* Chrome, Safari, Opera */
     animation: pulse 5s infinite;
     background: rgba(243, 219, 153, 0.5);
-    border-radius: 70%;
+    border-radius: 50%;
     height: 0em;
     width: 0em;
     margin-top: 0em;
     margin-left: 0em;
-  }
-
-  @-moz-keyframes pulse {
-    0% {
-      opacity: 0.2;
-      height: 1em;
-      width: 1em;
-      margin-top: -0.5em;
-      margin-left: -0.5em;
-    }
-    50% {
-      opacity: 0.5;
-      height: 3em;
-      width: 3em;
-      margin-top: -1.5em;
-      margin-left: -1.5em;
-    }
-    100% {
-      opacity: 0.2;
-      height: 1em;
-      width: 1em;
-      margin-top: -0.5em;
-      margin-left: -0.5em;
-    }
-  }
-  @-webkit-keyframes pulse {
-    0% {
-      opacity: 0.2;
-      height: 1em;
-      width: 1em;
-      margin-top: -0.5em;
-      margin-left: -0.5em;
-    }
-    50% {
-      opacity: 0.9;
-      height: 3em;
-      width: 3em;
-      margin-top: -1.5em;
-      margin-left: -1.5em;
-    }
-    100% {
-      opacity: 0.2;
-      height: 1em;
-      width: 1em;
-      margin-top: -0.5em;
-      margin-left: -0.5em;
-    }
-  }
-  @-o-keyframes pulse {
-    0% {
-      opacity: 0.2;
-      height: 1em;
-      width: 1em;
-      margin-top: -0.5em;
-      margin-left: -0.5em;
-    }
-    50% {
-      opacity: 0.9;
-      height: 3em;
-      width: 3em;
-      margin-top: -1.5em;
-      margin-left: -1.5em;
-    }
-    100% {
-      opacity: 0.2;
-      height: 1em;
-      width: 1em;
-      margin-top: -0.5em;
-      margin-left: -0.5em;
-    }
   }
   @keyframes pulse {
     0% {
