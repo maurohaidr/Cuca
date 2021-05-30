@@ -11,6 +11,13 @@
     background: linear-gradient(rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgb(50, 50, 50, 0));
     border:none;
     outline:none;
+    
+}
+.cuca:hover{
+  /* cursor: grab; */
+  cursor: url(http://www.rw-designer.com/icon-view/12512.png),auto;
+  /* cursor: url(http://www.rw-designer.com/icon-view/16308.png),auto; */
+  
 }
 
 .body{
@@ -72,6 +79,7 @@ body{
 
 
   .container{
+    cursor: url(http://www.rw-designer.com/cursor-view/64266.png),auto;
     min-height: 100vh; 
     min-width: 100vh; 
     color:black;
@@ -101,7 +109,6 @@ body{
       margin-top: -3em;
       margin-left: -3em;
     }
-
     50% {
       opacity: 0.9;
       height: 11em;
@@ -110,7 +117,6 @@ body{
       margin-left: -5.5em;
       background: rgba(243, 219, 153, 0.5);
     }
-
     100% {
       opacity: 0.2;
       height: 6em;
