@@ -11,12 +11,8 @@ export function moverCuca() {
 export function reset(){
   return { type: RESET }
 }
-export function start(){
-  return{ type: START }
-}
-export function linterna(){
-  return{ type: LINTERNA }
-}
+
+
 
 
   

@@ -3,6 +3,8 @@
     color: brown;
 }
 .cuca{
+    display:flex;
+    flex-direction:column;
     background: -o-linear-gradient(rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgb(50, 50, 50, 0));
     background: -moz-linear-gradient(rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgb(50, 50, 50, 0));
     background: -webkit-linear-gradient(rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgb(50, 50, 50, 0));
