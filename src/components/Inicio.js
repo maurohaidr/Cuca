@@ -29,7 +29,7 @@ import './Inicio.css'
           setCucas(20);
           props.reset();
         } 
-        if(segundos >= 40){
+        if(segundos >= 30){
           alert('Demasiado lento.. las cucas escaparon!')
           clearInterval(intervalo);
           setActivo(false);
