@@ -7,35 +7,46 @@ import './Inicio.css'
 
     const Inicio = (props) => {     
       
-      const [segundos, setSegundos] = useState(30);
+      const [segundos, setSegundos] = useState(0);
       const [activo, setActivo] = useState(false);
       const [nightMode, setNightMode] = useState(false);
-      const [nightDay, setNightDay] = useState('Night')
+      const [nightDay, setNightDay] = useState('Night');
+      const [cucas, setCucas] = useState(20);
+
       useEffect(() => {      
                 
         let intervalo = null;
         if(activo){
           intervalo = setInterval(() => {
-            setSegundos(segundos => segundos - 1);
-          }, 1000)
+            setSegundos(segundos => segundos + 0.01);
+          }, 10)
         }
-        if(segundos === 0){
-          alert('Aplastaste ' + props.hits + ' cucas')
+        if(cucas === 0){
+          alert('Tardaste ' + segundos.toFixed(2) + ' segundos en exterminar a las cucas')
           clearInterval(intervalo);
           setActivo(false);
-          setSegundos(30);
+          setSegundos(0);
+          setCucas(20);
           props.reset();
         } 
+        if(segundos >= 40){
+          alert('Demasiado lento.. las cucas escaparon!')
+          clearInterval(intervalo);
+          setActivo(false);
+          setSegundos(0);
+          setCucas(20);
+          props.reset();
+        }
           
         return () => clearInterval(intervalo);
       }, [activo, segundos])
 
 
-      let toggle = function() {
+ /*      let toggle = function() {
         setActivo(true);
         setSegundos(30);
         props.reset()
-      } 
+      }  */
       let toggleNight = function() {
         setNightMode(!nightMode);
         if(nightMode){
@@ -82,9 +93,10 @@ import './Inicio.css'
       }
     }
     let handleHit = function(){
-
+      setCucas(cucas - 1)
       props.moverCuca()
       setActivo(true);
+
     }
     
   
@@ -95,11 +107,11 @@ import './Inicio.css'
             </div>
           </div> 
           <div className ='bar' >      
-            <span className='barText' >Hits: {props.hits}</span>        
-            <span className='barText' >Tiempo: {segundos} s</span>
+            <span className='barText' >Cucas: {props.hits}</span>        
+            <span className='barText' >Tiempo: {segundos.toFixed(2)} s</span>
             <button className = 'button' onClick = {() => {
               props.reset()
-              setSegundos(30)
+              setSegundos(0)
               setActivo(false)
             }}>Reset</button>          
 {/*             <button className = 'button' onClick = {() => toggle()} >Start</button>   */}
