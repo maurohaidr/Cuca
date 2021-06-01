@@ -27,7 +27,7 @@ import './Inicio.css'
         if(activo){
           intervalo = setInterval(() => {  
             if(dificulty === 'Easy'){
-              if(segundos.toFixed(1) - segundos.toFixed(0) === 0){
+              if(segundos.toFixed(2) - segundos.toFixed(0) === 0){
                 props.moverCuca()
               }
             }          
@@ -130,8 +130,8 @@ import './Inicio.css'
       return (
         <div className={nightMode &&  'container'} onMouseMove={handleMouseMove}>
 
-            <div id="follower">
-              <div id="circle1">
+            <div id="follower" className= 'follower'>
+              <div id="circle1" className= 'circle1'>
             </div>
           </div> 
           <div className ='bar' >      
@@ -144,7 +144,7 @@ import './Inicio.css'
               setActivo(false)
             }}>Reset</button>          
 {/*             <button className = 'button' onClick = {() => toggle()} >Start</button>   */}
-            <button className = 'button' onClick = {() => toggleNight()}>{nightDay}</button>  
+            {(window.innerWidth > 500) ? <button className = 'button' onClick = {() => toggleNight()}>{nightDay}</button> : null }
             <button className = 'button' onClick = {() => toggleDif()}>{dificulty}</button>  
           </div>
            
