@@ -6,7 +6,7 @@ import './Inicio.css'
 /* import pointer from './pointer.js' */
 
     const Inicio = (props) => {     
-      const [segundos, setSegundos] = useState(25);
+      const [segundos, setSegundos] = useState(30);
       const [activo, setActivo] = useState(false);
       const [nightMode, setNightMode] = useState(false);
       const [nightDay, setNightDay] = useState('Night');
@@ -26,10 +26,10 @@ import './Inicio.css'
       }
       var randomizeDir = function(d){
         var n = Math.random()
-        if (n > 0 && n < 0.25 && d !== 'N'){
+        if (n > 0 && n < 0.30 && d !== 'N'){
           setDirection('N')
         }
-        if (n > 0.25 && n < 0.5 && d !== 'S'){
+        if (n > 0.30 && n < 0.5 && d !== 'S'){
           setDirection('S')
         }
         if (n > 0.5 && n < 0.75 && d !== 'E'){
@@ -62,7 +62,7 @@ import './Inicio.css'
                 })             
               }   
               if(direction === 'S' && segundos.toFixed(2) - segundos.toFixed(1) === 0){
-                if(pos.x < 25){
+                if(pos.x < 30){
                   setDirection('N')
                 }
                 setPos({
@@ -71,7 +71,7 @@ import './Inicio.css'
                 })             
               }   
               if(direction === 'E' && segundos.toFixed(2) - segundos.toFixed(1) === 0){
-                if(pos.y < 25){
+                if(pos.y < 30){
                   setDirection('O')
                 }
                 setPos({
@@ -110,7 +110,7 @@ import './Inicio.css'
                   if(pos.x < 5){
                     setPos({
                       ...pos,
-                      x: window.innerHeight-45
+                      x: Math.round(window.innerHeight)/10*9
                     })
                   } else{
                   setPos({
@@ -165,7 +165,7 @@ import './Inicio.css'
                   if(pos.x < 5){
                     setPos({
                       ...pos,
-                      x: window.innerHeight-45
+                      x: Math.round(window.innerHeight)/10*9
                     })} else{
                   setPos({
                     ...pos,
@@ -210,10 +210,10 @@ import './Inicio.css'
           }, 10)             
         }
         if(cucas === 0){
-          alert('Tardaste ' + ((25 - segundos).toFixed(2)) + ' segundos en exterminar a las cucas')
+          alert('Tardaste ' + ((30 - segundos).toFixed(2)) + ' segundos en exterminar a las cucas')
           clearInterval(intervalo);
           setActivo(false);
-          setSegundos(25);
+          setSegundos(30);
           setCucas(20);
           props.reset();
           setPos({
@@ -226,7 +226,7 @@ import './Inicio.css'
           alert('Demasiado lento.. las cucas escaparon!')
           clearInterval(intervalo);
           setActivo(false);
-          setSegundos(25);
+          setSegundos(30);
           setCucas(20);
           props.reset();
           setPos({
@@ -325,12 +325,12 @@ import './Inicio.css'
             <path d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6a3.989 3.989 0 0 0-1.334-2.982A3.983 3.983 0 0 0 8 2a3.983 3.983 0 0 0-2.667 1.018A3.989 3.989 0 0 0 4 6h8z"/>
             </svg> {cucas}</span>        
             <span className='barText' ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
-  <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+  <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .302.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
   <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
 </svg> {segundos.toFixed(2)} s</span>
             <button className = 'button' onClick = {() => {
               props.reset()
-              setSegundos(25)
+              setSegundos(30)
               setCucas(20)
               setActivo(false)
               setPos({
@@ -342,10 +342,10 @@ import './Inicio.css'
             {(window.innerWidth > 500) ? <button className = 'button' onClick = {() => toggleNight()}>{nightDay}</button> : null }
             <button className = 'button' onClick = {() => toggleDif()}>{dificulty}</button>  
           </div>
-{/*           {(dificulty === 'Easy' && segundos > 5 && cucas > 1) ? <button className = 'cuca' onClick={() =>handleHit2()} style={{position: 'absolute', bottom: (props.cucaPos2.x), right: props.cucaPos2.y}}><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bug" viewBox="0 0 16 16">
+{/*           {(dificulty === 'Easy' && segundos > 5 && cucas > 1) ? <button className = 'cuca' onClick={() =>handleHit2()} style={{position: 'absolute', bottom: (props.cucaPos2.x), right: props.cucaPos2.y}}><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bug" viewBox="0 0 16 16">
             <path d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6a3.989 3.989 0 0 0-1.334-2.982A3.983 3.983 0 0 0 8 2a3.983 3.983 0 0 0-2.667 1.018A3.989 3.989 0 0 0 4 6h8z"/>
             </svg></button> : null}
-            {(dificulty === 'Hard') ? (<button className = 'cuca' onClick={() =>handleHit3()} style={{position: 'absolute', bottom: (props.cucaPos3.x), right: props.cucaPos3.y}}><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bug" viewBox="0 0 16 16">
+            {(dificulty === 'Hard') ? (<button className = 'cuca' onClick={() =>handleHit3()} style={{position: 'absolute', bottom: (props.cucaPos3.x), right: props.cucaPos3.y}}><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bug" viewBox="0 0 16 16">
             <path d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6a3.989 3.989 0 0 0-1.334-2.982A3.983 3.983 0 0 0 8 2a3.983 3.983 0 0 0-2.667 1.018A3.989 3.989 0 0 0 4 6h8z"/>
             </svg></button>) : null} */}
           {dificulty === 'Hard' && window.innerWidth < 600 ? <div className = 'cucaBlock'>
