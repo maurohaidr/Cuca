@@ -102,7 +102,7 @@ import './Inicio.css'
                   }else{
                   setPos({
                     ...pos,
-                    x: pos.x + 3
+                    x: pos.x + 5
                   })}          
                 } 
                 
@@ -115,7 +115,7 @@ import './Inicio.css'
                   } else{
                   setPos({
                     ...pos,
-                    x: pos.x - 3
+                    x: pos.x - 5
                   })}          
                 }   
                 if(direction === 'E' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
@@ -127,7 +127,7 @@ import './Inicio.css'
                   }else{
                   setPos({
                     ...pos,
-                    y: pos.y - 3
+                    y: pos.y - 5
                   })}   
                 }            
                    
@@ -140,7 +140,7 @@ import './Inicio.css'
                   }else{
                   setPos({
                     ...pos,
-                    y: pos.y + 3
+                    y: pos.y + 5
                   })}           
                 }
               } 
@@ -157,7 +157,7 @@ import './Inicio.css'
                   }else{
                   setPos({
                     ...pos,
-                    x: pos.x + 6
+                    x: pos.x + 5
                   })}          
                 } 
                 
@@ -169,7 +169,7 @@ import './Inicio.css'
                     })} else{
                   setPos({
                     ...pos,
-                    x: pos.x - 6
+                    x: pos.x - 5
                   })}          
                 }   
                 if(direction === 'E' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
@@ -181,7 +181,7 @@ import './Inicio.css'
                   }else{
                   setPos({
                     ...pos,
-                    y: pos.y - 6
+                    y: pos.y - 5
                   })}   
                 }            
                    
@@ -194,7 +194,7 @@ import './Inicio.css'
                   }else{
                   setPos({
                     ...pos,
-                    y: pos.y + 6
+                    y: pos.y + 5
                   })}           
                 }
               } 
