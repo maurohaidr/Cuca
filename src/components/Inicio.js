@@ -49,85 +49,86 @@ import './Inicio.css'
         } */
         if(activo){
           intervalo = setInterval(() => {  
-            if(dificulty === 'Hard'){
+/*             if(dificulty === 'Hard'){
               if(segundos.toFixed(2) - segundos.toFixed(0) === 0){
                 randomizeDir()
               }
-              if(direction === 'N'){
+              if(direction === 'N' && segundos.toFixed(2) - segundos.toFixed(1) === 0){
                 if(pos.x > window.innerHeight/10*8){
                   setDirection('S')
                 }
                 setPos({
                   ...pos,
-                  x: pos.x + 1
+                  x: pos.x + 10
                 })             
               }   
-              if(direction === 'S'){
+              if(direction === 'S' && segundos.toFixed(2) - segundos.toFixed(1) === 0){
                 if(pos.x < 25){
                   setDirection('N')
                 }
                 setPos({
                   ...pos,
-                  x: pos.x - 1
+                  x: pos.x - 10
                 })             
               }   
-              if(direction === 'E'){
+              if(direction === 'E' && segundos.toFixed(2) - segundos.toFixed(1) === 0){
                 if(pos.y < 25){
                   setDirection('O')
                 }
                 setPos({
                   ...pos,
-                  y: pos.y - 1
+                  y: pos.y - 10
                 })             
               }   
-              if(direction === 'O'){
+              if(direction === 'O' && segundos.toFixed(2) - segundos.toFixed(1) === 0){
                 if(pos.y > window.innerWidth/10*8){
                   setDirection('E')
                 }
                 setPos({
                   ...pos,
-                  y: pos.y + 1
+                  y: pos.y + 10
                 })             
               }
-            }
+            } */
               if (dificulty === 'Easy'){
                 if(segundos.toFixed(2) - segundos.toFixed(0) === 0){
                   randomizeDir()
                 }
-                if(direction === 'N'){
+                if(direction === 'N' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
                   if(pos.x > window.innerHeight/10*8){
                     setDirection('S')
                   }
                   setPos({
                     ...pos,
-                    x: pos.x + 2
+                    x: pos.x + 5
                   })             
-                }   
-                if(direction === 'S'){
-                  if(pos.x < 25){
+                } 
+                
+                if(direction === 'S' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
+                  if(pos.x < 70){
                     setDirection('N')
                   }
                   setPos({
                     ...pos,
-                    x: pos.x - 2
+                    x: pos.x - 5
                   })             
                 }   
-                if(direction === 'E'){
-                  if(pos.y < 25){
+                if(direction === 'E' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
+                  if(pos.y < 70){
                     setDirection('O')
                   }
                   setPos({
                     ...pos,
-                    y: pos.y - 2
+                    y: pos.y -5
                   })             
                 }   
-                if(direction === 'O'){
+                if(direction === 'O' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
                   if(pos.y > window.innerWidth/10*8){
                     setDirection('E')
                   }
                   setPos({
                     ...pos,
-                    y: pos.y + 2
+                    y: pos.y + 5
                   })             
                 }
               } 
@@ -234,6 +235,7 @@ import './Inicio.css'
       setCucas(cucas - 1);
       setPos(randomizePos());
       setActivo(true);
+      setDirection(randomizeDir());
     }
 /*     let handleHit2 = function(){
       setCucas(cucas - 1);
