@@ -94,41 +94,54 @@ import './Inicio.css'
                   randomizeDir()
                 }
                 if(direction === 'N' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
-                  if(pos.x > window.innerHeight/10*8){
-                    setDirection('S')
-                  }
+                  if(pos.x > window.innerHeight-45){
+                    setPos({
+                      ...pos,
+                      x: 5,
+                    })  
+                  }else{
                   setPos({
                     ...pos,
                     x: pos.x + 3
-                  })             
+                  })}          
                 } 
                 
                 if(direction === 'S' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
-                  if(pos.x < 70){
-                    setDirection('N')
-                  }
+                  if(pos.x < 5){
+                    setPos({
+                      ...pos,
+                      x: window.innerHeight-45
+                    })
+                  } else{
                   setPos({
                     ...pos,
                     x: pos.x - 3
-                  })             
+                  })}          
                 }   
                 if(direction === 'E' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
-                  if(pos.y < 70){
-                    setDirection('O')
-                  }
+                  if(pos.y < 5){
+                    setPos({
+                      ...pos,
+                      y: window.innerWidth-5,
+                    })   
+                  }else{
                   setPos({
                     ...pos,
-                    y: pos.y -3
-                  })             
-                }   
+                    y: pos.y - 3
+                  })}   
+                }            
+                   
                 if(direction === 'O' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
-                  if(pos.y > window.innerWidth/10*8){
-                    setDirection('E')
-                  }
+                  if(pos.y > window.innerWidth-5){
+                    setPos({
+                      ...pos,
+                      y: 5,
+                    })    
+                  }else{
                   setPos({
                     ...pos,
                     y: pos.y + 3
-                  })             
+                  })}           
                 }
               } 
               if (dificulty === 'Easy' && window.innerWidth < 600){
@@ -136,41 +149,53 @@ import './Inicio.css'
                   randomizeDir()
                 }
                 if(direction === 'N' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
-                  if(pos.x > window.innerHeight/10*8){
-                    randomizeDir('N')
-                  }
+                  if(pos.x > window.innerHeight-45){
+                    setPos({
+                      ...pos,
+                      x: 5,
+                    })  
+                  }else{
                   setPos({
                     ...pos,
                     x: pos.x + 6
-                  })             
+                  })}          
                 } 
                 
                 if(direction === 'S' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
-                  if(pos.x < 70){
-                    randomizeDir('S')
-                  }
+                  if(pos.x < 5){
+                    setPos({
+                      ...pos,
+                      x: window.innerHeight-45
+                    })} else{
                   setPos({
                     ...pos,
                     x: pos.x - 6
-                  })             
+                  })}          
                 }   
                 if(direction === 'E' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
-                  if(pos.y < 70){
-                    randomizeDir('E')
-                  }
+                  if(pos.y < 5){
+                    setPos({
+                      ...pos,
+                      y: window.innerWidth-5,
+                    })   
+                  }else{
                   setPos({
                     ...pos,
                     y: pos.y - 6
-                  })             
-                }   
+                  })}   
+                }            
+                   
                 if(direction === 'O' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
-                  if(pos.y > window.innerWidth/10*8){
-                    randomizeDir('O')
-                  }
+                  if(pos.y > window.innerWidth-5){
+                    setPos({
+                      ...pos,
+                      y: 5,
+                    })    
+                  }else{
                   setPos({
                     ...pos,
                     y: pos.y + 6
-                  })             
+                  })}           
                 }
               } 
                        
