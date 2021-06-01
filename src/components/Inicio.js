@@ -94,7 +94,7 @@ import './Inicio.css'
                   randomizeDir()
                 }
                 if(direction === 'N' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
-                  if(pos.x > window.innerHeight-45){
+                  if(pos.x > Math.round(Math.random()*window.innerHeight)/10*8){
                     setPos({
                       ...pos,
                       x: 5,
@@ -149,7 +149,7 @@ import './Inicio.css'
                   randomizeDir()
                 }
                 if(direction === 'N' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
-                  if(pos.x > window.innerHeight-45){
+                  if(pos.x > Math.round(Math.random()*window.innerHeight)/10*8){
                     setPos({
                       ...pos,
                       x: 5,
