@@ -141,7 +141,7 @@ import './Inicio.css'
                   }
                   setPos({
                     ...pos,
-                    x: pos.x + 10
+                    x: pos.x + 6
                   })             
                 } 
                 
@@ -151,7 +151,7 @@ import './Inicio.css'
                   }
                   setPos({
                     ...pos,
-                    x: pos.x - 10
+                    x: pos.x - 6
                   })             
                 }   
                 if(direction === 'E' && (segundos.toFixed(2) - segundos.toFixed(0) > 0.05)){
@@ -160,7 +160,7 @@ import './Inicio.css'
                   }
                   setPos({
                     ...pos,
-                    y: pos.y -10
+                    y: pos.y - 6
                   })             
                 }   
                 if(direction === 'O' && (segundos.toFixed(2) - segundos.toFixed(0) > 0.05)){
@@ -169,7 +169,7 @@ import './Inicio.css'
                   }
                   setPos({
                     ...pos,
-                    y: pos.y + 10
+                    y: pos.y + 6
                   })             
                 }
               } 
