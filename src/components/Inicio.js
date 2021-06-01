@@ -145,11 +145,14 @@ import './Inicio.css'
         if(cucas === 0){
           alert('Tardaste ' + segundos.toFixed(2) + ' segundos en exterminar a las cucas')
           clearInterval(intervalo);
-          clearInterval(intervalo2);
           setActivo(false);
           setSegundos(0);
           setCucas(20);
           props.reset();
+          setPos({
+            x: window.innerHeight/2,
+            y: window.innerWidth/2
+          })
         } 
 
         if(segundos >= 20){
@@ -160,11 +163,14 @@ import './Inicio.css'
           setSegundos(0);
           setCucas(20);
           props.reset();
+          setPos({
+            x: window.innerHeight/2,
+            y: window.innerWidth/2
+          })
         }
           
         return () => {
-          clearInterval(intervalo);   
-          clearInterval(intervalo2);      
+          clearInterval(intervalo);      
         }
       }, [activo, segundos, cucas])
 
