@@ -6,7 +6,7 @@ import './Inicio.css'
 /* import pointer from './pointer.js' */
 
     const Inicio = (props) => {     
-      const [segundos, setSegundos] = useState(0);
+      const [segundos, setSegundos] = useState(25);
       const [activo, setActivo] = useState(false);
       const [nightMode, setNightMode] = useState(false);
       const [nightDay, setNightDay] = useState('Night');
@@ -40,7 +40,6 @@ import './Inicio.css'
         }
       }
       useEffect(() => {      
-        let intervalo2 = null;
         let intervalo = null;
 /*         if(activo && dificulty === 'Easy'){
         intervalo2 = setInterval(() => {
@@ -182,14 +181,14 @@ import './Inicio.css'
                 props.moverCuca3()                
               } */
                 
-            setSegundos(segundos => segundos + 0.01);
+            setSegundos(segundos => segundos - 0.01);
           }, 10)             
         }
         if(cucas === 0){
-          alert('Tardaste ' + segundos.toFixed(2) + ' segundos en exterminar a las cucas')
+          alert('Tardaste ' + (25 - segundos.toFixed(2)) + ' segundos en exterminar a las cucas')
           clearInterval(intervalo);
           setActivo(false);
-          setSegundos(0);
+          setSegundos(25);
           setCucas(20);
           props.reset();
           setPos({
@@ -198,12 +197,11 @@ import './Inicio.css'
           })
         } 
 
-        if(segundos >= 20){
+        if(segundos > 25){
           alert('Demasiado lento.. las cucas escaparon!')
           clearInterval(intervalo);
-          clearInterval(intervalo2);
           setActivo(false);
-          setSegundos(0);
+          setSegundos(25);
           setCucas(20);
           props.reset();
           setPos({
@@ -302,7 +300,7 @@ import './Inicio.css'
             <span className='barText' >Time: {segundos.toFixed(2)} s</span>
             <button className = 'button' onClick = {() => {
               props.reset()
-              setSegundos(0)
+              setSegundos(25)
               setCucas(20)
               setActivo(false)
               setPos({
