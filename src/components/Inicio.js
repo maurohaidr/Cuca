@@ -132,6 +132,48 @@ import './Inicio.css'
                   })             
                 }
               } 
+              if (dificulty === 'Easy' && window.innerWidth < 600){
+                if(segundos.toFixed(2) - segundos.toFixed(0) === 0){
+                  randomizeDir()
+                }
+                if(direction === 'N' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
+                  if(pos.x > window.innerHeight/10*8){
+                    setDirection('S')
+                  }
+                  setPos({
+                    ...pos,
+                    x: pos.x + 15
+                  })             
+                } 
+                
+                if(direction === 'S' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
+                  if(pos.x < 70){
+                    setDirection('N')
+                  }
+                  setPos({
+                    ...pos,
+                    x: pos.x - 15
+                  })             
+                }   
+                if(direction === 'E' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
+                  if(pos.y < 70){
+                    setDirection('O')
+                  }
+                  setPos({
+                    ...pos,
+                    y: pos.y -15
+                  })             
+                }   
+                if(direction === 'O' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
+                  if(pos.y > window.innerWidth/10*8){
+                    setDirection('E')
+                  }
+                  setPos({
+                    ...pos,
+                    y: pos.y + 15
+                  })             
+                }
+              } 
                        
 /*               if(segundos > 5 && segundos.toFixed(2) - segundos.toFixed(0) === 0.5){
                 props.moverCuca2()                
