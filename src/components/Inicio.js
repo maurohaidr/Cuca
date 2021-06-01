@@ -24,18 +24,18 @@ import './Inicio.css'
         y = Math.round(Math.random()*window.innerWidth)/10*9
         return {x, y}
       }
-      var randomizeDir = function(){
+      var randomizeDir = function(d){
         var n = Math.random()
-        if (n > 0 && n < 0.25){
+        if (n > 0 && n < 0.25 && d !== 'N'){
           setDirection('N')
         }
-        if (n > 0.25 && n < 0.5){
+        if (n > 0.25 && n < 0.5 && d !== 'S'){
           setDirection('S')
         }
-        if (n > 0.5 && n < 0.75){
+        if (n > 0.5 && n < 0.75 && d !== 'E'){
           setDirection('E')
         }
-        if (n > 0.75 && n < 1){
+        if (n > 0.75 && n < 1 && d !== 'O'){
           setDirection('O')
         }
       }
@@ -138,39 +138,39 @@ import './Inicio.css'
                 }
                 if(direction === 'N' && (segundos.toFixed(2) - segundos.toFixed(0) > 0.05)){
                   if(pos.x > window.innerHeight/10*8){
-                    setDirection('S')
+                    randomizeDir('N')
                   }
                   setPos({
                     ...pos,
-                    x: pos.x + 15
+                    x: pos.x + 10
                   })             
                 } 
                 
                 if(direction === 'S' && (segundos.toFixed(2) - segundos.toFixed(0) > 0.05)){
                   if(pos.x < 70){
-                    setDirection('N')
+                    randomizeDir('S')
                   }
                   setPos({
                     ...pos,
-                    x: pos.x - 15
+                    x: pos.x - 10
                   })             
                 }   
                 if(direction === 'E' && (segundos.toFixed(2) - segundos.toFixed(0) > 0.05)){
                   if(pos.y < 70){
-                    setDirection('O')
+                    randomizeDir('E')
                   }
                   setPos({
                     ...pos,
-                    y: pos.y -15
+                    y: pos.y -10
                   })             
                 }   
                 if(direction === 'O' && (segundos.toFixed(2) - segundos.toFixed(0) > 0.05)){
                   if(pos.y > window.innerWidth/10*8){
-                    setDirection('E')
+                    randomizeDir('O')
                   }
                   setPos({
                     ...pos,
-                    y: pos.y + 15
+                    y: pos.y + 10
                   })             
                 }
               } 
