@@ -5,15 +5,17 @@
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^13.1.1",
+    "bootbox": "^5.5.2",
+    "cdnjs": "^0.3.2",
+    "node-fetch": "^2.6.1",
+    "prompt-sync": "^4.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0",
-    "node-fetch": "^2.6.1",
-    "prompt-sync": "^4.2.0"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

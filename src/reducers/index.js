@@ -3,7 +3,6 @@ const initialState = {
     x: window.innerHeight/2,
     y: window.innerWidth/2,
   },
-  hits:20,
   };
 
   function pos(){
@@ -20,13 +19,11 @@ const initialState = {
         return {
           ...state,
           cucaPos: pos(),
-          hits: state.hits - 1,
         }
       }
     if (action.type === "RESET") {
       return {
         ...state,
-        hits: 20,
         cucaPos:{
           x: window.innerHeight/2,
           y: window.innerWidth/2,

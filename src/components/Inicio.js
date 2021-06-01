@@ -12,34 +12,57 @@ import './Inicio.css'
       const [nightMode, setNightMode] = useState(false);
       const [nightDay, setNightDay] = useState('Night');
       const [cucas, setCucas] = useState(20);
+      const [dificulty, setDificulty] = useState('Hard')
+
+      
 
       useEffect(() => {      
-                
+        let intervalo2 = null;
         let intervalo = null;
+/*         if(activo && dificulty === 'Easy'){
+        intervalo2 = setInterval(() => {
+          props.moverCuca()
+        }, 700)
+        } */
         if(activo){
-          intervalo = setInterval(() => {
+          intervalo = setInterval(() => {  
+            if(dificulty === 'Easy'){
+              if(segundos.toFixed(1) - segundos.toFixed(0) === 0){
+                props.moverCuca()
+              }
+            }          
             setSegundos(segundos => segundos + 0.01);
           }, 10)
+/*           intervalo = setInterval(() => {
+             props.moverCuca()
+          }, 700) */
+             
         }
         if(cucas === 0){
           alert('Tardaste ' + segundos.toFixed(2) + ' segundos en exterminar a las cucas')
           clearInterval(intervalo);
+          clearInterval(intervalo2);
           setActivo(false);
           setSegundos(0);
           setCucas(20);
           props.reset();
         } 
+
         if(segundos >= 20){
           alert('Demasiado lento.. las cucas escaparon!')
           clearInterval(intervalo);
+          clearInterval(intervalo2);
           setActivo(false);
           setSegundos(0);
           setCucas(20);
           props.reset();
         }
           
-        return () => clearInterval(intervalo);
-      }, [activo, segundos])
+        return () => {
+          clearInterval(intervalo);   
+          clearInterval(intervalo2);      
+        }
+      }, [activo, segundos, cucas])
 
 
  /*      let toggle = function() {
@@ -54,6 +77,11 @@ import './Inicio.css'
         }
         else setNightDay('Day')
       }    
+      let toggleDif = function(){
+        if(dificulty === 'Easy')
+        setDificulty('Hard')
+        else setDificulty('Easy')
+      }
 
       let handleMouseMove = () => {
         if(nightMode){
@@ -93,29 +121,31 @@ import './Inicio.css'
       }
     }
     let handleHit = function(){
-      setCucas(cucas - 1)
-      props.moverCuca()
+      setCucas(cucas - 1);
+      props.moverCuca();
       setActivo(true);
-
     }
     
   
       return (
-        <div className={nightMode && 'container'} onMouseMove={handleMouseMove}>
+        <div className={nightMode &&  'container'} onMouseMove={handleMouseMove}>
+
             <div id="follower">
               <div id="circle1">
             </div>
           </div> 
           <div className ='bar' >      
-            <span className='barText' >Cucas: {props.hits}</span>        
-            <span className='barText' >Tiempo: {segundos.toFixed(2)} s</span>
+            <span className='barText' >Cucas: {cucas}</span>        
+            <span className='barText' >Time: {segundos.toFixed(2)} s</span>
             <button className = 'button' onClick = {() => {
               props.reset()
               setSegundos(0)
+              setCucas(20)
               setActivo(false)
             }}>Reset</button>          
 {/*             <button className = 'button' onClick = {() => toggle()} >Start</button>   */}
             <button className = 'button' onClick = {() => toggleNight()}>{nightDay}</button>  
+            <button className = 'button' onClick = {() => toggleDif()}>{dificulty}</button>  
           </div>
            
           <div className = 'cucaBlock'>
