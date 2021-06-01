@@ -89,7 +89,7 @@ import './Inicio.css'
                 })             
               }
             } */
-              if (dificulty === 'Easy'){
+              if (dificulty === 'Easy' && window.innerWidth >= 600){
                 if(segundos.toFixed(2) - segundos.toFixed(0) === 0){
                   randomizeDir()
                 }
@@ -135,7 +135,7 @@ import './Inicio.css'
                 if(segundos.toFixed(2) - segundos.toFixed(0) === 0){
                   randomizeDir()
                 }
-                if(direction === 'N' && (segundos.toFixed(2) - segundos.toFixed(0) > 0.05)){
+                if(direction === 'N' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
                   if(pos.x > window.innerHeight/10*8){
                     randomizeDir('N')
                   }
@@ -145,7 +145,7 @@ import './Inicio.css'
                   })             
                 } 
                 
-                if(direction === 'S' && (segundos.toFixed(2) - segundos.toFixed(0) > 0.05)){
+                if(direction === 'S' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
                   if(pos.x < 70){
                     randomizeDir('S')
                   }
@@ -154,7 +154,7 @@ import './Inicio.css'
                     x: pos.x - 6
                   })             
                 }   
-                if(direction === 'E' && (segundos.toFixed(2) - segundos.toFixed(0) > 0.05)){
+                if(direction === 'E' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
                   if(pos.y < 70){
                     randomizeDir('E')
                   }
@@ -163,7 +163,7 @@ import './Inicio.css'
                     y: pos.y - 6
                   })             
                 }   
-                if(direction === 'O' && (segundos.toFixed(2) - segundos.toFixed(0) > 0.05)){
+                if(direction === 'O' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
                   if(pos.y > window.innerWidth/10*8){
                     randomizeDir('O')
                   }
@@ -197,7 +197,7 @@ import './Inicio.css'
           })
         } 
 
-        if(segundos > 25){
+        if(segundos < 0){
           alert('Demasiado lento.. las cucas escaparon!')
           clearInterval(intervalo);
           setActivo(false);
