@@ -20,6 +20,7 @@ const initialState = {
         y = Math.round(Math.random()*window.innerWidth)/10*9
         return {x, y}
   }
+
   function rootReducer(state = initialState, action) {
     
     if (action.type === "MOVER_CUCA") {
