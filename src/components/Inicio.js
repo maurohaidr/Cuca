@@ -145,7 +145,7 @@ import './Inicio.css'
                 }
               } 
               if (dificulty === 'Easy' && window.innerWidth < 600){
-                if(segundos.toFixed(2) - segundos.toFixed(0) === 0){
+                if(segundos.toFixed(2) - segundos.toFixed(1) === 0){
                   randomizeDir()
                 }
                 if(direction === 'N' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
