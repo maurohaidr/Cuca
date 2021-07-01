@@ -212,7 +212,6 @@ import './Inicio.css'
       }    
       let toggleDif = function(){
         if(dificulty === 'Easy'){
-          clearInterval(intervalo);
           setActivo(false);
           setSegundos(30);
           setCucas(20);
@@ -224,7 +223,6 @@ import './Inicio.css'
           setDificulty('Hard')
         }
         else {
-          clearInterval(intervalo);
           setActivo(false);
           setSegundos(30);
           setCucas(20);
