@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export const MOVER_CUCA = "MOVER_CUCA";
 export const RESET = "RESET";
 export const GET_SCORES = 'GET_SCORES'
