@@ -170,7 +170,7 @@ import './Inicio.css'
         }
         if(cucas === 0){
           alert('Tardaste ' + ((30 - segundos).toFixed(2)) + ' segundos en exterminar a las cucas')
-          props.postScore({nombre:Mauro, score:30 - segundos})
+          props.postScore({nombre:'Mauro', score:30 - segundos})
           clearInterval(intervalo);
           setActivo(false);
           setSegundos(30);
