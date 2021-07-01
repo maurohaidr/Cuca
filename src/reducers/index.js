@@ -3,14 +3,7 @@ const initialState = {
     x: window.innerHeight/2,
     y: window.innerWidth/2,
   },
-  cucaPos2:{
-    x: window.innerHeight/2,
-    y: window.innerWidth/2,
-  },
-  cucaPos3:{
-    x: window.innerHeight/2,
-    y: window.innerWidth/2,
-  },
+  scores:[],
   };
 
   function pos(){
@@ -30,20 +23,13 @@ const initialState = {
           cucaPos: pos(),
         }
       }
-    if (action.type === "MOVER_CUCA2") {
+      if (action.type === "GET_SCORES") {
 
         return {
           ...state,
-          cucaPos2: pos(),
+          scores: action.payload,
         }
-    }
-    if (action.type === "MOVER_CUCA3") {
-
-      return {
-        ...state,
-        cucaPos3: pos(),
       }
-  }
     if (action.type === "RESET") {
       return {
         ...state,

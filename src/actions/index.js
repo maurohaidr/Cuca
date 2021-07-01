@@ -1,23 +1,24 @@
-
-
 export const MOVER_CUCA = "MOVER_CUCA";
-export const START = "START";
 export const RESET = "RESET";
-export const LINTERNA = "LINTERNA";
-export const MOVER_CUCA2 ='MOVER_CUCA2';
-export const MOVER_CUCA3 ='MOVER_CUCA3';
+export const GET_SCORES = 'GET_SCORES'
+
 export function moverCuca() {
     return { type: MOVER_CUCA };
 }
-export function moverCuca2() {
-    return { type: MOVER_CUCA2 };
-}
-export function moverCuca3() {
-  return { type: MOVER_CUCA3 };
-}
+
 export function reset(){
-  return { type: RESET }
+    return { type: RESET }
 }
+
+export function getScores() {
+    return async function(dispatch) {
+      const result = await axios.get("https://cuca-server.herokuapp.com/hightscores");
+      dispatch({ type: GET_SCORES, payload: result.data });
+    };
+}
+export function postScore(data) {
+    axios.post("https://cuca-server.herokuapp.com/postScore", data);
+};
 
 
 
