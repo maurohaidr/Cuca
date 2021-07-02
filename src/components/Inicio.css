@@ -41,6 +41,19 @@
     border:none;
     outline:none;
 }
+.scores{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  height:fit-content;
+  width:fit-content;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(202, 228, 250);
+}
 
 
 

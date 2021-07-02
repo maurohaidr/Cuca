@@ -18,7 +18,9 @@ export function getScores() {
     };
 }
 export function postScore(data) {
+    return function(){
     axios.post("https://cuca-server.herokuapp.com/postScore", data);
+    }
 };
 
 
