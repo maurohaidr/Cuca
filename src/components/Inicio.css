@@ -42,17 +42,25 @@
     outline:none;
 }
 .scores{
+  margin-top:5px;
+  margin-left: 10px;
   display:flex;
   flex-direction: column;
   justify-content: center;
   height:fit-content;
   width:fit-content;
-  margin: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(143, 143, 143);
   border-width: 1px;
   border-style: solid;
   border-color: rgb(202, 228, 250);
+}
+.score{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 
@@ -95,7 +103,7 @@ body{
     min-height: 100vh; 
     min-width: 100vh; 
     color:black;
-    background-color: rgb(7, 6, 6);
+    background-color: rgb(7, 6, 6);    
   }
   .follower {
     position: fixed;

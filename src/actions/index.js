@@ -11,9 +11,9 @@ export function reset(){
     return { type: RESET }
 }
 
-export function getScores() {
+export function getScores(dif) {
     return async function(dispatch) {
-      const result = await axios.get("https://cuca-server.herokuapp.com/hightscores");
+      const result = await axios.get("https://cuca-server.herokuapp.com/hightscores/?dificulty=" + dif);
       dispatch({ type: GET_SCORES, payload: result.data });
     };
 }

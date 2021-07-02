@@ -17,10 +17,15 @@ import './Inicio.css'
         y: window.innerWidth/2
       })
       const[show, setShow] = useState(false)
-
+      const[sorted, setSorted] = useState([])
+      useEffect(() =>   {        
+      props.getScores(dificulty)
+      props.scores && setSorted(props.scores.sort((a, b) => {return a.score - b.score}))
+      }, [dificulty])
       let showScores = function(){
         if(show === false){
-          props.getScores()
+          props.getScores(dificulty)
+          props.scores && setSorted(props.scores.sort((a, b) => {return a.score - b.score}))
           setShow(true)
         }
         else setShow(false)
@@ -172,8 +177,16 @@ import './Inicio.css'
           }, 10)             
         }
         if(cucas === 0){
+          props.getScores(dificulty)
+          props.scores && setSorted(props.scores.sort((a, b) => {return a.score - b.score}))
+          if(30 - segundos < sorted[9].score){
+            let foo = prompt('New HightScore, type your name');
+            console.log(foo);
+            props.postScore({nombre:foo, score:30 - segundos, dificulty: dificulty})
+          }
+          else 
           alert('Tardaste ' + ((30 - segundos).toFixed(2)) + ' segundos en exterminar a las cucas')
-          props.postScore({nombre:'Mauro', score:30 - segundos, dificulty: dificulty})
+/*           props.postScore({nombre:'Mauro', score:30 - segundos, dificulty: dificulty}) */
           clearInterval(intervalo);
           setActivo(false);
           setSegundos(30);
@@ -284,10 +297,9 @@ import './Inicio.css'
     
   
       return (
-        <div className={nightMode &&  'container'} onMouseMove={handleMouseMove}>
-
-            <div id="follower" className= 'follower'>
-              <div id="circle1" className= 'circle1'>
+        <div className={nightMode ? 'container' : undefined} onMouseMove={handleMouseMove}>
+            <div id="follower" className= {nightMode ? 'follower' : undefined}>
+              <div id="circle1" className= {nightMode ? 'circle1' : undefined}>
             </div>
           </div> 
           <div className ='bar' >      
@@ -310,8 +322,11 @@ import './Inicio.css'
             }}>Reset</button>          
             {(window.innerWidth > 500) ? <button className = 'button' onClick = {() => toggleNight()}>{nightDay}</button> : null }
             <button className = 'button' onClick = {() => toggleDif()}>{dificulty}</button>  
+            <div className='scoresBox'>
             <button className = 'button' onClick = {() => showScores()}>HightScores</button>
-          </div>
+            {show ? <div className='scores'>{sorted.slice(1, 10).map(e => <div className='score'><p>{e.nombre}</p>&nbsp;&nbsp;<p>{e.score}</p>&nbsp;&nbsp;<p>{e.dificulty}</p></div>)}</div> :null}
+            </div>
+          </div>          
           {dificulty === 'Hard' && window.innerWidth < 600 ? <div className = 'cucaBlock'>
             <button className = 'cuca' onClick={() =>handleHit()} style={{position: 'absolute', bottom: (pos.x), right: (pos.y)}}><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bug" viewBox="0 0 16 16">
             <path d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6a3.989 3.989 0 0 0-1.334-2.982A3.983 3.983 0 0 0 8 2a3.983 3.983 0 0 0-2.667 1.018A3.989 3.989 0 0 0 4 6h8z"/>
@@ -332,7 +347,7 @@ import './Inicio.css'
             <path d="M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6a3.989 3.989 0 0 0-1.334-2.982A3.983 3.983 0 0 0 8 2a3.983 3.983 0 0 0-2.667 1.018A3.989 3.989 0 0 0 4 6h8z"/>
             </svg>{!activo && 'Start'}</button>
           </div> : null}
-          {show ? <div className='scores'>{props.scores.map(e => <div><p>{e.nombre}</p><p>{e.score}</p></div>)}</div> :null}
+          
         </div>
       );
     }    
@@ -348,7 +363,7 @@ function mapStateToProps (state){
     return {
       moverCuca: () => dispatch(moverCuca()),
       postScore: score => dispatch(postScore(score)),
-      getScores: () => dispatch(getScores()),
+      getScores: dif => dispatch(getScores(dif)),
       reset: () => dispatch(reset()),
     }
   }
