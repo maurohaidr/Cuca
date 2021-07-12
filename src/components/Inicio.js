@@ -216,7 +216,7 @@ import './Inicio.css'
         return () => {
           clearInterval(intervalo);      
         }
-      }, [activo, segundos, cucas])
+      }, [activo, segundos, cucas, sorted])
 
       let toggleNight = function() {
         setNightMode(!nightMode);
