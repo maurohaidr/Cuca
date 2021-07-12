@@ -53,6 +53,8 @@ import './Inicio.css'
         }
       }
       useEffect(() => {      
+        setSorted(props.scores.sort((a, b) => {return a.score - b.score})/* .sclice(0, 10) */)
+        sorted.slice(0, 10)
         let intervalo = null;
         if(activo){
           intervalo = setInterval(() => {  
