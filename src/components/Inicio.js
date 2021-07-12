@@ -222,7 +222,7 @@ import './Inicio.css'
 
       let toggleNight = function() {
         setNightMode(!nightMode);
-        if(nightMode){
+        if(!nightMode){
           setNightDay('Night')
         }
         else setNightDay('Day')
