@@ -185,10 +185,12 @@ import './Inicio.css'
           if(30 - segundos < sorted[9].score){
             let foo = prompt('New HightScore, type your name');
             props.postScore({nombre:foo, score:30 - segundos, dificulty: dificulty})
-          }
+          }          
           else 
           alert('Tardaste ' + ((30 - segundos).toFixed(2)) + ' segundos en exterminar a las cucas')
 /*           props.postScore({nombre:'Mauro', score:30 - segundos, dificulty: dificulty}) */
+          setSorted(props.scores.sort((a, b) => {return a.score - b.score})/* .sclice(0, 10) */)
+          sorted.slice(0, 10)
           clearInterval(intervalo);
           setActivo(false);
           setSegundos(30);
