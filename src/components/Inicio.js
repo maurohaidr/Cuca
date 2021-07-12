@@ -178,7 +178,8 @@ import './Inicio.css'
         }
         if(cucas === 0){
           props.getScores(dificulty)
-          props.scores && setSorted(props.scores.sort((a, b) => {return a.score - b.score}).sclice(0, 10))
+          setSorted(props.scores.sort((a, b) => {return a.score - b.score})/* .sclice(0, 10) */)
+          sorted.slice(0, 10)
           if(30 - segundos < sorted[9].score){
             let foo = prompt('New HightScore, type your name');
             props.postScore({nombre:foo, score:30 - segundos, dificulty: dificulty})
