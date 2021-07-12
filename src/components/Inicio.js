@@ -8,7 +8,7 @@ import './Inicio.css'
       const [segundos, setSegundos] = useState(30);
       const [activo, setActivo] = useState(false);
       const [nightMode, setNightMode] = useState(false);
-      const [nightDay, setNightDay] = useState('Night');
+      const [nightDay, setNightDay] = useState('Day');
       const [cucas, setCucas] = useState(20);
       const [dificulty, setDificulty] = useState('Easy')
       const [direction, setDirection] = useState('N')
