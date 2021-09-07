@@ -182,7 +182,7 @@ import './Inicio.css'
           props.getScores(dificulty)
           setSorted(props.scores.sort((a, b) => {return a.score - b.score})/* .sclice(0, 10) */)
           sorted.slice(0, 10)
-          if(30 - segundos < sorted[9].score){
+          if(sorted && 30 - segundos < sorted[9].score){
             let foo = prompt('New HightScore, type your name');
             props.postScore({nombre:foo, score:30 - segundos, dificulty: dificulty})
           }          
