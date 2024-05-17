@@ -123,26 +123,26 @@ body{
   }
   @keyframes pulse {
     0% {
-      opacity: 0.2;
-      height: 6em;
-      width: 6em;
-      margin-top: -3em;
-      margin-left: -3em;
-    }
-    50% {
-      opacity: 0.9;
+      opacity: 0.5;
       height: 11em;
       width: 11em;
       margin-top: -5.5em;
       margin-left: -5.5em;
+    }
+    50% {
+      opacity: 0.9;
+      height: 14em;
+      width: 14em;
+      margin-top: -7em;
+      margin-left: -7em;
       background: rgba(243, 219, 153, 0.5);
     }
     100% {
-      opacity: 0.2;
-      height: 6em;
-      width: 6em;
-      margin-top: -3em;
-      margin-left: -3em;
+      opacity: 0.5;
+      height: 11em;
+      width: 11em;
+      margin-top: -5.5em;
+      margin-left: -5.5em;
     }
   }
 }

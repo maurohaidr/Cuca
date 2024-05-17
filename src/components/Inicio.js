@@ -73,8 +73,7 @@ import './Inicio.css'
                     ...pos,
                     x: pos.x + 5
                   })}          
-                } 
-                
+                }
                 if(direction === 'S' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
                   if(pos.x < 5){
                     setPos({
@@ -98,8 +97,7 @@ import './Inicio.css'
                     ...pos,
                     y: pos.y - 5
                   })}   
-                }            
-                   
+                }  
                 if(direction === 'O' && (segundos.toFixed(2) - segundos.toFixed(0) < 0.05)){
                   if(pos.y > window.innerWidth-5){
                     setPos({
@@ -166,15 +164,7 @@ import './Inicio.css'
                     y: pos.y + 5
                   })}           
                 }
-              } 
-                       
-/*               if(segundos > 5 && segundos.toFixed(2) - segundos.toFixed(0) === 0.5){
-                props.moverCuca2()                
-              }
-              if(segundos > 10 && segundos.toFixed(2) - segundos.toFixed(0) === 0.2){
-                props.moverCuca3()                
-              } */
-                
+              }    
             setSegundos(segundos => segundos - 0.01);
           }, 10)             
         }
